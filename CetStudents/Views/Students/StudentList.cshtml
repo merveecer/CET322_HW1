@@ -1,0 +1,38 @@
+﻿@model List<StudentModel>
+@{
+    ViewData["Title"] = "StudentList";
+}
+
+<h2>Student List</h2>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-5" style="padding-bottom:30px; padding-top:20px;">
+            <a asp-action="Create" class="btn btn-success" style="text-align:center;"><i class="fas fa-plus"></i>  Add new student </a>
+        </div>
+
+    </div>
+    <div class="row">
+        @foreach (var student in Model)
+        {
+            <div class="col-md-3">
+                <div class="card" style="padding:10px;">
+                    <img src="~/images/user.png" class="card-img-top" alt="..." asp-append-version="true">
+                    <div class="card-body" align="center">
+                        <h4>@student.Name @student.Surname</h4>
+                        <p>@student.SchoolNumber</p>
+
+                        <a asp-action="Edit" asp-route-id="@student.Id" class="btn btn-primary" style="text-align:center;"><i class="fa fa-edit"></i>  Edit </a>
+                        <a asp-action="Delete" asp-route-id="@student.Id" class="btn btn-danger" style="text-align:center;"><i class="fa fa-trash-alt"></i>  Delete </a>
+                     
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+

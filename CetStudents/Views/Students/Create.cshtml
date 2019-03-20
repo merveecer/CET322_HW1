@@ -1,0 +1,69 @@
+﻿@model StudentModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Add new student</h2>
+<div class="row">
+    <div class="container">
+
+        <form asp-controller="Students" asp-action="Create" method="post">
+            <div class="row">
+                <div class=" input-group mb-2">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(x => x.Name)
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(x => x.Name, null, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group mb-2">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(x => x.Surname)
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(x => x.Surname, null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-group mb-2">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(x => x.SchoolNumber)
+                    </div>
+                    <div class=" col-md-7">
+                        @Html.TextBoxFor(x => x.SchoolNumber, null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="input-group mb-2">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(x => x.Email)
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(x => x.Email, null, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class=" btn btn-success"> <i class="fa fa-save"></i>  Save</button>
+            <button type="button"id="cancelbtn" class=" btn btn-danger"> <i class="fa fa-cancel"></i>  Cancel</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+
+   
+     $(document).ready(function () {
+            $("#cancelbtn").click(function () {
+                window.location = "@Url.Action("StudentList", "Students")";
+            });
+        });
+    
+</script>
+
